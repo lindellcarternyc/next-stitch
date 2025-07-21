@@ -3,20 +3,30 @@
 import { useRouter } from "next/navigation";
 
 import { Dropdown, DropdownOption } from "./dropdown";
+import { useSession } from "@/lib/auth-client";
 
 export const Toolbar = () => {
   const router = useRouter();
+  const session = useSession();
 
-  const options: DropdownOption<string>[] = [
-    {
-      label: "Sign In",
-      value: "signin",
-    },
-  ];
+  const options: DropdownOption<string>[] = session.data?.user
+    ? [
+        {
+          label: "sign-out",
+          value: "/sign-out",
+        },
+      ]
+    : [
+        {
+          label: "Sign In",
+          value: "/sign-in",
+        },
+      ];
 
   const onSelect = (value: string) => {
-    if (value === "signin" || value === "login") {
-      router.push(`/auth/${value}`);
+    switch (value) {
+      default:
+        router.push(value);
     }
   };
 
