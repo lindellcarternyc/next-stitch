@@ -86,8 +86,8 @@ model Project {
 model Section {
   id          String    @id @default(uuid())
   name        String
-  rows        Int
-  stitches    Int
+  rows        Int       @default(0)
+  stitches    Int       @default(0)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   projectId   String
