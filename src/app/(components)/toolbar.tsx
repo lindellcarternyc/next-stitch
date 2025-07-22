@@ -10,6 +10,10 @@ const AUTHORIZED_OPTIONS = [
     label: "Sign Out",
     value: "sign-out",
   },
+  {
+    label: "Projects",
+    value: "/projects",
+  },
 ];
 
 const UNAUTHORIZED_OPTIONS = [

@@ -61,11 +61,11 @@ export function Dropdown<T>({
         {trigger}
       </Button>
       {isOpen && (
-        <ul className="absolute bg-background top-10 p-2 right-[-1px] cursor-pointer hover:bg-foreground hover:text-background border w-md max-w-full">
+        <ul className="absolute bg-background top-10 right-[-1px] border w-md max-w-full">
           {options.map((option) => (
             <li
               key={`${option.value}`}
-              className="flex justify-end"
+              className="flex justify-end p-2 cursor-pointer hover:bg-foreground hover:text-background"
               data-option={`${option.value}`}
               onClick={handleSelect}
             >
