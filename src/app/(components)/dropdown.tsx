@@ -48,8 +48,16 @@ export function Dropdown<T>({
   });
 
   return (
-    <div className="relative w-full flex justify-end border" ref={dropdownRef}>
-      <Button title="Togglw Dropdown" onClick={toggle} variant="primary">
+    <div
+      className="relative flex justify-end w-full max-w-md"
+      ref={dropdownRef}
+    >
+      <Button
+        title="Togglw Dropdown"
+        onClick={toggle}
+        variant="primary"
+        className="rounded-none"
+      >
         {trigger}
       </Button>
       {isOpen && (
