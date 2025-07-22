@@ -2,9 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-
-import { signOut, useSession } from "@/lib/auth-client";
-import { Button } from "../(components)/button";
+import { useSession } from "@/lib/auth-client";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -24,18 +22,10 @@ export default function DashboardPage() {
   const { user } = session;
 
   return (
-    <main className="max-w-md flex items-center justify-center flex-col mx-auto p-6 space-y-4">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
+    <main className="max-w-md mx-auto space-y-4">
+      <h1 className="text-2xl font-bold">Projects</h1>
       <p>Welcome, {user.name || "User"}!</p>
       <p>Email: {user.email}</p>
-      <Button
-        type="button"
-        variant="primary"
-        className="rounded"
-        onClick={() => signOut()}
-      >
-        Sign Out
-      </Button>
     </main>
   );
 }
