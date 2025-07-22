@@ -31,7 +31,6 @@ export const editProjectName = async (projectId: string, name: string) => {
 
 export const deleteProject = async (projectId: string) => {
   try {
-    console.log(`deleteProject(${projectId})`);
     await prisma.project.delete({
       where: { id: projectId },
     });
