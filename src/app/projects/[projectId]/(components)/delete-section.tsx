@@ -18,7 +18,7 @@ export const DeleteSection = ({
   deleteSection,
 }: {
   sectionId: string;
-  deleteSection: (_: string) => void;
+  deleteSection: (_: string) => Promise<void>;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -37,14 +37,6 @@ export const DeleteSection = ({
 
   return (
     <>
-      {/* <button
-        type="button"
-        onClick={openModal}
-        title="Delete Section"
-        className="border rounded-md px-2"
-      >
-        <XCircleIcon width={24} />
-      </button> */}
       <button
         type="button"
         title="Cancel"
