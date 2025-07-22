@@ -39,9 +39,11 @@ export const Toolbar = () => {
 
   return (
     <div
-      className={`fixed top-0 border w-full flex justify-between items-center`}
+      className={`fixed top-0 border w-full flex justify-between items-center bg-background`}
     >
-      {session.data?.user && <div>Hi, {session.data.user.name}</div>}
+      {session.data?.user && (
+        <div className="pl-2">Hi, {session.data.user.name}</div>
+      )}
       <Dropdown options={options} trigger="Menu" onSelect={onSelect}>
         {(option) => {
           return <p>{option.label}</p>;
