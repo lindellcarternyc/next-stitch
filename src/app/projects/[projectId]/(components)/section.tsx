@@ -36,7 +36,6 @@ export const Section = async ({ section }: SectionProps) => {
   return (
     <div className="border">
       <div className="flex p-2 border-b space-x-4 cursor-pointer">
-        {/* <h3 className="text-lg text-center">{section.name}</h3> */}
         <EditTitle title={section.name} onEdit={onEditSectionName} />
         <DeleteSection sectionId={section.id} deleteSection={onDeleteSection} />
       </div>
