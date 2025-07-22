@@ -21,7 +21,6 @@ export default function DashboardPage() {
   if (!session?.user)
     return <p className="text-center mt-8 text-white">Redirecting...</p>;
 
-  //add-start: destructure user from session
   const { user } = session;
 
   return (
@@ -29,7 +28,6 @@ export default function DashboardPage() {
       <h1 className="text-2xl font-bold">Dashboard</h1>
       <p>Welcome, {user.name || "User"}!</p>
       <p>Email: {user.email}</p>
-      {/* add-start: sign out button */}
       <Button
         type="button"
         variant="primary"
