@@ -37,13 +37,21 @@ export const DeleteSection = ({
 
   return (
     <>
-      <button
+      {/* <button
         type="button"
         onClick={openModal}
         title="Delete Section"
-        className="absolute top-2 right-2 cursor-pointer"
+        className="border rounded-md px-2"
       >
         <XCircleIcon width={24} />
+      </button> */}
+      <button
+        type="button"
+        title="Cancel"
+        className="cursor-pointer border p-2 rounded-md"
+        onClick={openModal}
+      >
+        <XCircleIcon width={20} />
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>

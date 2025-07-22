@@ -3,6 +3,7 @@ import { SectionBox } from "./section-box";
 
 import { deleteSection, updateSection } from "@/lib/actions";
 import { DeleteSection } from "./delete-section";
+import { EditTitle } from "@/app/(components)/edit-title";
 
 interface SectionProps {
   section: PrismaSection;
@@ -24,10 +25,19 @@ export const Section = async ({ section }: SectionProps) => {
     await deleteSection(sectionId);
   };
 
+  const onEditSectionName = async (name: string) => {
+    "use server";
+    await updateSection({
+      ...section,
+      name,
+    });
+  };
+
   return (
     <div className="border">
-      <div className="relative p-2 border-b">
-        <h3 className="text-lg text-center">{section.name}</h3>
+      <div className="flex p-2 border-b space-x-4 cursor-pointer">
+        {/* <h3 className="text-lg text-center">{section.name}</h3> */}
+        <EditTitle title={section.name} onEdit={onEditSectionName} />
         <DeleteSection sectionId={section.id} deleteSection={onDeleteSection} />
       </div>
       <div className="flex">

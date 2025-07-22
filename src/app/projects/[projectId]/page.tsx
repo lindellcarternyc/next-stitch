@@ -1,7 +1,8 @@
 import { getProjectById } from "@/lib/queries";
 import { NewSection } from "./(components)/new-section";
-import { createSection } from "@/lib/actions";
+import { createSection, editProjectName } from "@/lib/actions";
 import { Section } from "./(components)/section";
+import { EditTitle } from "@/app/(components)/edit-title";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -19,10 +20,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     await createSection(projectId, name);
   };
 
+  const onEditProjectName = async (name: string) => {
+    "use server";
+    await editProjectName(projectId, name);
+  };
+
   return (
     <div className="space-y-4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl">{project.name}</h1>
+      <div className="flex justify-between gap-4 items-center">
+        <EditTitle
+          title={project.name}
+          className="text-2xl font-bold"
+          onEdit={onEditProjectName}
+        />
         <NewSection onSubmit={onSubmit} />
       </div>
       <ul className="space-y-4">

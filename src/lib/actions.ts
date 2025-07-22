@@ -17,6 +17,18 @@ export const createProject = async (userId: string, projectName: string) => {
   }
 };
 
+export const editProjectName = async (projectId: string, name: string) => {
+  try {
+    await prisma.project.update({
+      where: { id: projectId },
+      data: { name },
+    });
+    revalidatePath(`/projects/${projectId}`);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const deleteProject = async (projectId: string) => {
   try {
     await prisma.project.delete({
